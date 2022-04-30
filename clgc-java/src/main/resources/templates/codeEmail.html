@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>成理工程ACM集训队-邮件通知</title>
+</head>
+<body>
+<div style="opacity: 1;">
+    <div style="background: white;
+               width: 100%;
+               max-width: 800px;
+               margin: auto auto;
+               border-radius: 5px;
+               border:#1bc3fb 1px solid;
+               overflow: hidden;
+               -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
+               box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.18);">
+        <header style="overflow: hidden;">
+            <center>
+<!--                https://img-blog.csdnimg.cn/05df20f3250d4b07a7fbb53ad8ac8baf.png-->
+                <img style="width:50%;z-index: 666;" src="https://img-blog.csdnimg.cn/a458bf114f6f4912953f8b73eab00580.png">
+            </center>
+        </header>
+        <div style="padding: 5px 20px; ">
+            <p style=" position: relative;
+                 color: white;
+                 float: left;
+                 z-index: 999;
+                 background: #1bc3fb;
+                 padding: 5px 30px;
+                 margin: -25px auto 0 ;
+                 box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.30) ">
+                邮件通知
+            </p>
+            <br>
+            <center>
+                <h3>
+                    来自 <span style=" text-decoration: none;color: #FF779A;">成理工程ACM集训队</span> 的邮件提醒
+                </h3>
+                <p style="text-indent:2em;">
+                    学号为 <span style="color:#aa1fd0;" th:text="${xh}"> </span> 的同学您好，您已成功报名参与  <span style="color:#c80f66;" th:text="${code}"> </span>
+                    <br>假如这不是您本人所申请, 则无需理会这封电子邮件。
+                </p>
+<!--                <div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;text-align: center; ">-->
+<!--                    请使用以下验证码完成后续注册流程：<br>-->
+<!--                    &lt;!&ndash;                   #FF779A &ndash;&gt;-->
+<!--                    <span style=" color: #c847e3;font-weight: bolder;font-size: 25px;" th:text="${code}"></span><br>-->
+<!--                    注意:请您在收到邮件5分钟内使用，否则该验证码将会失效。-->
+<!--                </div>-->
+<!--                &nbsp; &nbsp;-->
+
+                <br>
+                <div style=" text-align: center; ">
+                    <!--                background: #FF779A;color: #FFFFFF; -->
+                    <a style="text-transform: uppercase;
+                               text-decoration: none;
+                               font-size: 14px;
+                               background: #cb2edd;
+                               color: #FFFFFF;
+                               padding: 10px;
+                               display: inline-block;
+                               border-radius: 5px;
+                               margin: 10px auto 0;" target="_blank" href="http://tothefor.com/" rel="noopener">成理工程ACM集训队</a>
+                </div>
+                <p style="font-size: 12px;text-align: center;color: #999; ">
+                    最好的记忆不如最淡的墨水。<br>
+                    © 2021 <a style="text-decoration:none; color:#1bc3fb " href="http://tothefor.com/" rel="noopener" target="_blank">成理工程ACM集训队</a>
+                </p>
+                <p></p>
+            </center>
+        </div>
+    </div>
+</body>
+</html>
