@@ -339,7 +339,7 @@ export default {
       this.itemTypeGet()
       this.$refs[resetForm].validate((valid) => {
         if (valid) {
-          this.form.flagUP = true
+          this.form.flagUP = true //是否为管理员进行的修改或添加
           this.$http.post("/item/save", this.form).then(res => {
             if (res.statusCode == '200') {
               ElMessage({

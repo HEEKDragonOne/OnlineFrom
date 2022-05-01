@@ -225,7 +225,7 @@ export default {
 
     },
     submitOK() { //真正提交处理
-      this.ruleForm.flagUP = false
+      this.ruleForm.flagUP = false //是否为管理员进行的修改，
       this.$http.post("/item/save", this.ruleForm).then(res => {
         if (res.statusCode == '401') {
           ElMessage.error('对不起！您被限制参加此类比赛。')
