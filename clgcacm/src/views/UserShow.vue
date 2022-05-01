@@ -128,7 +128,7 @@ export default {
         if (res.statusCode == '200') {
           this.total = res.data.total
           for(let it of res.data.records){
-            it.phone = it.phone.slice(0,3) + '****' + it.phone.slice(it.phone.length - 8)
+            it.phone = it.phone.slice(0,3) + '****' + it.phone.slice(it.phone.length - 4)
             it.email = it.email.slice(0,4) + '****' + it.email.slice(it.email.length - 8)
           }
           this.tableData = res.data.records
