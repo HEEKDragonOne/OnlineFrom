@@ -53,6 +53,25 @@ public class ApplyController {
 
     /**
      * @Author DragonOne
+     * @Date 2022/5/1
+     * @墨水记忆 www.tothefor.com
+     * @方法名称 getDescription
+     * @方法描述 获取指定报名表编号获取备注信息
+     * @参数说明
+     * @返回值
+     */
+    @GetMapping("/getDescription/{type}")
+    public R getDescription(@PathVariable String type) {
+
+        QueryWrapper<Apply> qw = new QueryWrapper<>();
+        qw.eq("type_id",type);
+        Apply apply = applyMapper.selectOne(qw);
+        return R.SUCCESS(apply.getDescription());
+    }
+
+
+    /**
+     * @Author DragonOne
      * @Date 2022/4/29
      * @墨水记忆 www.tothefor.com
      * @方法名称 closeAllItem

@@ -7,6 +7,10 @@
           <h3>{{ titleName }}</h3>
           <span>报名时间：{{ begin }} 至 {{ end }}</span> <br>
         </el-card>
+        <el-card shadow="always" style="margin-top: 5px">
+          <h3>注意事项</h3>
+          <span>{{ contentMSG }}</span>
+        </el-card>
       </el-col>
     </el-row>
     <el-row :gutter="12">
@@ -74,6 +78,10 @@
             <el-form-item>
               <el-button type="primary" @click="submitForm('ruleForm')">报名</el-button>
               <el-button @click="resetForm('ruleForm')">重置</el-button>
+
+<!--              根据当前报名表的编号查询所有报名信息-->
+              <el-button @click="this.$router.push('/userShow/'+this.applyId)">查看报名信息</el-button>
+
             </el-form-item>
           </el-form>
 
@@ -123,6 +131,8 @@ export default {
       }
     }
     return {
+      contentMSG:'无',
+      applyId:'',
       ruleForm: {},
       flagPro: false,
       dialogVisible: false,
@@ -188,10 +198,21 @@ export default {
         }, 0)
       }, 1000)
     },
+    getDes(applyType){//通过报名表编号获取备注信息
+      this.$http.get("/itemType/getDescription/"+applyType).then(res => {
+        if (res.statusCode == '200') {
+          this.contentMSG = res.data
+        }
+      }).catch(() => {
+        ElMessage.error('注意事项数据加载失败,请刷新！')
+      })
+    },
     getTableMsg() { //获取标题和时间
       this.$http.get("/itemType/getInfoOneMsg").then(res => {
         if (res.statusCode == '200') {
           this.ruleForm.typeid = res.data.typeId
+          this.applyId = res.data.typeId
+          this.getDes(res.data.typeId)
           this.titleName = res.data.typename
           this.begin = res.data.beginTime
           this.end = res.data.endTime
@@ -201,6 +222,7 @@ export default {
       }).catch(() => {
         ElMessage.error('数据加载失败,请刷新！')
       })
+
     },
     submitOK() { //真正提交处理
       this.$http.post("/item/save", this.ruleForm).then(res => {

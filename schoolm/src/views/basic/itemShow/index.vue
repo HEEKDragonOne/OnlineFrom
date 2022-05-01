@@ -63,9 +63,9 @@
       <el-table-column fixed type="selection" width="40" align="center"></el-table-column>
 
       <el-table-column fixed prop="id" label="id" width="100" sortable align="center"></el-table-column>
-      <el-table-column prop="itemId" label="人员编号" width="250" align="center"></el-table-column>
+      <el-table-column prop="itemId" label="人员编号" width="250" sortable align="center"></el-table-column>
       <el-table-column prop="name" label="姓名" width="250" align="center"></el-table-column>
-      <el-table-column prop="sex" label="性别" width="100" align="center"></el-table-column>
+      <el-table-column prop="sex" label="性别" width="100" sortable align="center"></el-table-column>
       <el-table-column prop="typeName" label="报名表" width="150" align="center"></el-table-column>
 
       <!--      <el-table-column prop="isShow" label="物品状态" width="150" align="center">-->
@@ -86,9 +86,9 @@
 
       <el-table-column prop="itemAddTime" label="报名时间" width="200" sortable align="center"></el-table-column>
       <!--      <el-table-column prop="itemUpdateTime" label="修改时间" width="200" sortable align="center"></el-table-column>-->
-      <el-table-column prop="size" label="学校" width="200" align="center"></el-table-column>
+      <el-table-column prop="size" label="学校" width="200" sortable align="center"></el-table-column>
       <el-table-column prop="itemCount" label="年级" width="90" sortable align="center"></el-table-column>
-      <el-table-column prop="description" label="专业" width="250" align="center"></el-table-column>
+      <el-table-column prop="description" label="专业" width="250" sortable align="center"></el-table-column>
       <el-table-column prop="phone" label="手机号" width="250" align="center"></el-table-column>
       <el-table-column prop="email" label="邮箱" width="250" align="center"></el-table-column>
 

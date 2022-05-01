@@ -9,6 +9,11 @@ const router = createRouter({
             path: '/',
             name: '首页',
             component: defineAsyncComponent(() => import('../views/index.vue')),
+        },
+        {
+            path: '/userShow/:applyID',
+            name: '报名信息',
+            component: defineAsyncComponent(()=>import('../views/UserShow.vue'))
         }
     ]
 })
