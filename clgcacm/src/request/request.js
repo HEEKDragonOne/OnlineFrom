@@ -11,9 +11,9 @@ request.interceptors.request.use(config => {
 
     // let usertoken = localStorage.getItem("token")?JSON.parse(localStorage.getItem("token")):null
 
-    // let usertoken = localStorage.getItem("token")
-    //
-    // config.headers['token'] = usertoken;  // 设置请求头
+    let usertoken = localStorage.getItem("token")
+
+    config.headers['token'] = usertoken;  // 设置请求头
     return config
 }, error => {
     return Promise.reject(error)

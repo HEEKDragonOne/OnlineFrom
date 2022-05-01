@@ -225,6 +225,7 @@ export default {
 
     },
     submitOK() { //真正提交处理
+      this.ruleForm.flagUP = false
       this.$http.post("/item/save", this.ruleForm).then(res => {
         if (res.statusCode == '401') {
           ElMessage.error('对不起！您被限制参加此类比赛。')

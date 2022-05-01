@@ -306,45 +306,56 @@ public class InformationController {
     @PostMapping("/save")
     public R itemSave(@RequestBody Information item) throws Exception {
 
-        String userXH = item.getItemId();
-        Long bmbBH = item.getTypeid();
-
-        QueryWrapper<Information> qwuser = new QueryWrapper();
-        qwuser.eq("user_id",userXH);
-        qwuser.eq("typeID",bmbBH);
-        Integer integer = informationMapper.selectCount(qwuser);
-        if(integer>0) return R.FAIL(402,"已经存在该用户！");
-
-
-        if(item.getDescription().equals("0") && item.getDescription2()!=null) item.setDescription(item.getDescription2());
-
-        QueryWrapper<BlackList> qw = new QueryWrapper();
-        qw.eq("blacklist_user_id", item.getItemId());
-        Integer aLong = blackListMapper.selectCount(qw);
-
-        String xh = item.getItemId();
-        String em = item.getEmail();
-
-        QueryWrapper<Apply> qw2 = new QueryWrapper();
-        qw2.ne("is_show", 0);
-        qw2.orderByDesc("id");
-        Apply itemType = applyMapper.selectOne(qw2);
-        String bm = itemType.getTypename();
-
-        if (aLong > 0) {
-            return R.FAIL(401, "对不起！您被限制参加此类比赛。");
-        } else {
-            try {
-                emailSend.sendEmail(xh,bm,em);
-                if (informationService.saveOrUpdate(item)) {
-                    return R.SUCCESS();
-                } else {
-                    return R.FAIL();
-                }
-            }catch (Exception e){
+        if(item.getFlagUP()){
+            if (informationService.saveOrUpdate(item)) {
+                return R.SUCCESS();
+            } else {
                 return R.FAIL();
             }
+        }else{
+            String userXH = item.getItemId();
+            Long bmbBH = item.getTypeid();
+
+            QueryWrapper<Information> qwuser = new QueryWrapper();
+            qwuser.eq("user_id",userXH);
+            qwuser.eq("typeID",bmbBH);
+            Integer integer = informationMapper.selectCount(qwuser);
+            if(integer>0) return R.FAIL(402,"已经存在该用户！");
+
+
+            if(item.getDescription().equals("0") && item.getDescription2()!=null) item.setDescription(item.getDescription2());
+
+            QueryWrapper<BlackList> qw = new QueryWrapper();
+            qw.eq("blacklist_user_id", item.getItemId());
+            Integer aLong = blackListMapper.selectCount(qw);
+
+            String xh = item.getItemId();
+            String em = item.getEmail();
+
+            QueryWrapper<Apply> qw2 = new QueryWrapper();
+            qw2.ne("is_show", 0);
+            qw2.orderByDesc("id");
+            Apply itemType = applyMapper.selectOne(qw2);
+            String bm = itemType.getTypename();
+
+            if (aLong > 0) {
+                return R.FAIL(401, "对不起！您被限制参加此类比赛。");
+            } else {
+                try {
+                    emailSend.sendEmail(xh,bm,em);
+                    if (informationService.saveOrUpdate(item)) {
+                        return R.SUCCESS();
+                    } else {
+                        return R.FAIL();
+                    }
+                }catch (Exception e){
+                    return R.FAIL();
+                }
+            }
+
         }
+
+
     }
 
     /**

@@ -105,6 +105,11 @@ public class Information implements Serializable {
     @TableField("sex")
     private String sex;
 
+    /**
+     * 判断是否为管理员进行的修改
+     */
+    @TableField(exist = false)
+    private Boolean flagUP;
 
 }
 

@@ -339,6 +339,7 @@ export default {
       this.itemTypeGet()
       this.$refs[resetForm].validate((valid) => {
         if (valid) {
+          this.form.flagUP = true
           this.$http.post("/item/save", this.form).then(res => {
             if (res.statusCode == '200') {
               ElMessage({

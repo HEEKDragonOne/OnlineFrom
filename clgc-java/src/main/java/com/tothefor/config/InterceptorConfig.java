@@ -1,4 +1,4 @@
-package com.tothefor.config;//package com.tothefor.config;
+//package com.tothefor.config;//package com.tothefor.config;
 //
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ package com.tothefor.config;//package com.tothefor.config;
 //    public void addInterceptors(InterceptorRegistry registry) {
 //        registry.addInterceptor(jwtInterceptor())
 //                .addPathPatterns("/**") //哪些url需要验证
-//                .excludePathPatterns("/user/login"); //哪些不需要验证
+//                .excludePathPatterns("/user/login","/item/*","/"); //哪些不需要验证
 //    }
 //    @Bean
 //    public JWTInterceptor jwtInterceptor(){

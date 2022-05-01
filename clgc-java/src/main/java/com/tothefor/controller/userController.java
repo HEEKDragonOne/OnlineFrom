@@ -231,7 +231,7 @@ public class userController {
             //设置token
             Map<String, String> hm = new HashMap<>();
             hm.put("username", username);
-            hm.put("userid", String.valueOf(user.getId()));
+            hm.put("id", String.valueOf(user.getId()));
             String token = JWTUtils.getToken(hm);
             loginDTO.setUserToken(token);
 
