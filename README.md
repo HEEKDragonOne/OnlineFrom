@@ -3,7 +3,6 @@
 一个基于SpringBoot+Vue3实现的前后端分离的在线报名系统，可用于用户的信息收集。
 前端利用Vite2+Vue3快速搭建。
 
-本项目在 [FirstBlood](https://github.com/HEEKDragonOne/FirstBlood) 基础上进行开发。
 
 ## 涉及知识点
 前端：Vue3、Element-Plus、Echarts、Axios、Vue-Router、Vite
